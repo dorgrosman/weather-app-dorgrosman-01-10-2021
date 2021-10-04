@@ -49,9 +49,7 @@
 }
 
 @media screen and (max-width: 690px) {
-    .box > select {
-        width: 190px;
-    }
+    
     input {
         width: 140px;
     }
@@ -60,6 +58,7 @@
     }
     .box > select {
         width: 210px;
+        margin: 20px;
     }
     .searchBox {
         flex-direction: column-reverse;
