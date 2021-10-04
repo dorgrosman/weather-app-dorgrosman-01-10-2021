@@ -1,0 +1,10 @@
+.App {
+  background-color: #faf7f7;
+  color: black;
+  height: 100vh;
+}
+@media screen and (max-width: 690px) {
+  .App{
+    height: 100%;
+  }
+}

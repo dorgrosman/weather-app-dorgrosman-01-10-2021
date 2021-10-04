@@ -1,0 +1,49 @@
+.card-container {
+    padding: 10px;
+
+    .card {
+        width: 180px;
+        height: 200px;
+        box-shadow: 0 4px 10px 0;
+        padding: 12px;
+        .details-btn {
+            color: #fff !important;
+            text-transform: uppercase;
+            text-decoration: none;
+            background: #c17a47;
+            padding: 10px 20px;
+            font-size: 14px;
+            border-radius: 50px;
+            display: inline-block;
+            border: none;
+            transition: all 0.4s ease 0s;
+        }
+        &:hover {
+            text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+            -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+            -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+            transition: all 0.4s ease 0s;
+        }
+    }
+    a {
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+}
+.fav-card {
+    height: 340px;
+    padding: 15px;
+}
+.favs-card-btns {
+    font-size: 20px;
+}
+.fa-heart {
+    font-size: 30px;
+    cursor: pointer;
+}
+.fav-page {
+    background-color: #faf7f7;
+    color: black;
+    height: 100vh;
+    align-content: flex-start
+}

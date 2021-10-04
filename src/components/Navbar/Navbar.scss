@@ -1,0 +1,178 @@
+@import "../../assets/scss/setup/variables";
+@import "../../assets/scss/setup/functions";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@500&display=swap");
+
+.main-navbar {
+  z-index: 10;
+  display: flex;
+  position: sticky;
+  top: 0;
+  background-color: $clr1;
+  padding: 0;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  .link {
+    text-decoration: none;
+  }
+  .logo {
+    padding-left: 1rem;
+  }
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  i {
+    color: $clr6;
+  }
+  .logo {
+    img {
+      width: 70px;
+    }
+  }
+  .pages {
+    font-size: 1.1rem;
+    color: $clr5;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    :not(:last-child) {
+      margin-right: 2.4rem;
+    }
+  }
+  .links a {
+    font-size: 1.2rem;
+    padding-right: 20px;
+  }
+  .links a:hover {
+    color: #d56d34;
+  }
+}
+.menu {
+  z-index: 30;
+  display: none;
+}
+.hamburger-menu {
+  padding-left: 210px;
+  z-index: 50;
+}
+.opened {
+  display: none;
+}
+.nav-btn {
+  height: 57px;
+  font-size: 24px;
+  .celsius-btn {
+  margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 775px) {
+  .main-navbar {
+    padding: 0;
+  }
+  .opened {
+    display: block;
+    z-index: 500;
+  }
+  .navBar {
+    display: none;
+    transition: all 0.5s ease-in-out;
+    background-color: #494949d2;
+    position: fixed;
+    flex-direction: column;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 200px;
+    align-items: center;
+  }
+  &.hide {
+    right: -50%;
+    position: fixed;
+    opacity: 0;
+  }
+  .navBar .links a {
+    display: flex;
+    align-items: center;
+    margin-top: 4.125rem;
+    text-align: center;
+  }
+  .menu {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+  }
+  .line {
+    fill: none;
+    stroke: rgb(255, 255, 255);
+    stroke-width: 6;
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+      stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+  .line2 {
+    stroke-dasharray: 60 60;
+    stroke-width: 6;
+  }
+  .line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+  .opened .line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+  .opened .line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 6;
+  }
+  .opened .line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .nav-btn {
+    height: 20px;
+    font-size: 18px;
+    
+    .celsius-btn {
+    margin-right: 10px;
+    }
+  }
+  .hamburger-menu {
+    padding-left: 70px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .hamburger-menu {
+    padding-left: 20px;
+  }
+  .nav-btn {
+    height: 20px;
+    font-size: 16px;
+    .celsius-btn {
+    margin-right: 10px;
+    padding: 5px;
+    }
+    .dark-btn {
+    padding: 5px;
+    }
+  }
+  .main-navbar .logo{
+    padding-left: 0;
+  }
+}
+

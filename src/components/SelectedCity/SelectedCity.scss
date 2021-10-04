@@ -1,0 +1,41 @@
+.fav-btn {
+    font-size: 30px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+.name-day-degree {
+    margin-bottom: 70px;
+}
+.fav-btn {
+    margin-bottom: 150px;
+}
+.main-icon {
+    width: 170px;
+}
+
+@media screen and (max-width: 690px) {
+    .name-day-degree {
+        margin-bottom: 40px;
+    }
+    .fav-btn {
+        margin-bottom: 120px;
+    }
+    .day-night > h1 {
+        font-size: 25px;
+    }
+}
+@media screen and (max-width: 550px) {
+    .card {
+        flex-direction: column;
+    }
+    .name-day-degree {
+        margin-bottom: 10px;
+    }
+    .main-icon {
+        max-width: 100%;
+    }
+    a > .fav-btn {
+        margin: 20px 0 20px 20px;
+        font-size: 50px;
+    }
+}

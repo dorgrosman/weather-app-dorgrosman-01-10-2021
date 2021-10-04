@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@500&display=swap');
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 16px;
+	scroll-behavior: smooth;
+	background-color: $clr2;
+	margin: 0 auto;
+	background-repeat: no-repeat;
+	background-position: top ;
+	background-size: 100vw 130vh;
+	background-blend-mode: soft-light;
+	background-attachment: fixed;
+	color: rgb(240, 240, 240);
+	letter-spacing: 0.3px;
+	font-family: 'Poppins';
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	font-family: 'Poppins';
+	margin: 0;
+	font-weight: normal;
+	padding: 0;
+}
+
+a {
+	font-family: 'Poppins';
+	text-decoration: none;
+	color: inherit;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+button {
+	font-family: 'Poppins';
+	cursor: pointer;
+
+	* {
+		pointer-events: none;
+	}
+}
+
+li {
+	list-style: none;
+}
+
+input {
+	font-family: 'Poppins';
+	font-family: inherit;
+	text-align: inherit;
+}
+
+// MAC like scrollbar
+::-webkit-scrollbar {
+	width: 8px;
+	background-color: rgba(0, 0, 0, 0);
+	-webkit-border-radius: 100px;
+}
+
+::-webkit-scrollbar:hover {
+	background-color: rgba(0, 0, 0, 0.09);
+}
+
+::-webkit-scrollbar-thumb:vertical {
+	background: rgba(0, 0, 0, 0.5);
+	-webkit-border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:vertical:active {
+	-webkit-border-radius: 100px;
+}

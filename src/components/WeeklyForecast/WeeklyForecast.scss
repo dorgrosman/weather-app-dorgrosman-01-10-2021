@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap");
+
+.weekly-card {
+    width: 250px;
+    height: 350px;
+    background: linear-gradient(#56ccf2, #2f80ed, rgb(61, 0, 160));
+    border-radius: 24px;
+    margin: 10px;
+}
+.content {
+    width: 175px;
+}
+
+.sky > div {
+    margin: 0 auto;
+    border-radius: 24px;
+}
+
+.cloud-1 {
+    width: 100%;
+    height: 60px;
+    background: var(--sky-blue);
+}
+
+.cloud-2 {
+    width: 75%;
+    height: 55px;
+    background: white;
+    margin-top: -30px !important;
+}
+
+.cloud-3 {
+    width: 60%;
+    height: 40px;
+    background: var(--sky-blue);
+    margin-top: -15px !important;
+}
+
+.sun {
+    width: 90px;
+    height: 90px;
+    background: var(--yellow);
+    border-radius: 50% !important;
+    margin-top: -70px !important;
+}
+
+.content {
+    text-align: center;
+    color: white;
+}
+
+.content > h1 {
+    font-size: 40px;
+    margin-left: 20px;
+}
+
+.content > h3 {
+    height: 70px;
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100%;
+    margin-top: 16px;
+    font-weight: 300;
+    row-gap: 8px;
+}
+
+.value {
+    font-size: 25px;
+}
+
+.label {
+    font-size: 14px;
+}
+.small-image {
+    width: 50%;
+    height: auto;
+    margin-bottom: 2px;
+}
+
+@media screen and (max-width: 1080px) {
+    .weekly-card {
+        margin: 2px;
+    }
+    .container-weekly-card {
+        padding-left: 0;
+    }
+    .content > h2 {
+        font-size: 30px;
+    }
+    .content > h1 {
+        font-size: 30px;
+        margin-left: 0;
+    }
+    .details {
+        display: block;
+    }
+}
+@media screen and (max-width: 960px) {
+    .content > h3 {
+        font-size: 16px;
+        height: 35px;
+    }
+    .content {
+        width: 130px;
+    }
+    .weekly-card {
+        width: 125px;
+        height: 315px;
+    }
+}
+@media screen and (max-width: 690px) {
+    .container-weekly-card{
+        flex-direction: column;
+        align-items: center;
+    }
+        .content {
+        width: 210px;
+    }
+    .weekly-card {
+        width: 205px;
+        height: 315px;
+        margin: 10px;
+    }
+    .details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        height: 100%;
+        margin-top: 16px;
+        font-weight: 300;
+        row-gap: 8px;
+    }
+    .main-icon{
+        max-width: 70%;
+    }
+}
