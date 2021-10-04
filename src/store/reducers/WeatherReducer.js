@@ -27,7 +27,6 @@ const initialState = {
 const WeatherReducer = (state = initialState, action) => {
     switch (action.type) {
         case SELECTED_CITY:
-            const selectedCityAuto = action.payload
             const citySelected = action.payload
             if (!citySelected._id) {
                 citySelected._id = makeId()
@@ -40,7 +39,7 @@ const WeatherReducer = (state = initialState, action) => {
                 citySelected.cityIsFav = false
                 state.isFav = false
             }
-            return { ...state, selectedCity: selectedCityAuto, selectedCityKey: selectedCityAuto.Key }
+            return { ...state, selectedCity: citySelected, selectedCityKey: citySelected.Key }
         case SET_AUTO_COMPETE:
             const locations = action.payload;
             const cityAutoComplete = []

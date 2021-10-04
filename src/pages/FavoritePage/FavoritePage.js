@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { matchCity, weeklyForecast5Days, searchCity, removeFavCity } from './../../store/action/WeatherAction';
+import { matchCity, weeklyForecast5Days, searchCity, removeFavCity, searchCityByKey } from './../../store/action/WeatherAction';
 import './FavoritePage.scss'
 
 export default function FavoritePage() {
@@ -11,7 +11,7 @@ export default function FavoritePage() {
     const dispatch = useDispatch();
 
     const goToDetails = ((city) => {
-        dispatch(searchCity(city.AdministrativeArea.LocalizedName))
+        dispatch(searchCityByKey(city.Key))
         dispatch(matchCity(city.Key))
         dispatch(weeklyForecast5Days(city.Key))
     })
