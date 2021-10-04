@@ -14,7 +14,7 @@ const initialState = {
     favCities: [],
     autocomplete: [{
         _id: '11234',
-        LocalizedName: "Tel Aviv" ,
+        LocalizedName: "Tel Aviv",
         Key: '215854',
         cityIsFav: false
     }],

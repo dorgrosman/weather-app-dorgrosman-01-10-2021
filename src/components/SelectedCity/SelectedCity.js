@@ -25,7 +25,7 @@ export default function SelectedCity() {
     })
 
     return (
-        <div>
+        <div id="details">
             {weeklyForecast[0] ?
             <div >
                 {(selectedCity && currentDataDay ) ? (
@@ -59,7 +59,7 @@ export default function SelectedCity() {
                                 <p>{weeklyForecast[0].Night.IconPhrase}</p>
                             </div>
                             <div className=" flex align-center">
-                                <a onClick={toggleFavHandler} >
+                                <a onClick={toggleFavHandler} href="#details">
                                     <i className={`fav-btn ${(isFav) ? 'fas fa-heart' : 'far fa-heart'}`}></i>
                                 </a>
                             </div>

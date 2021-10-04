@@ -19,7 +19,7 @@ export default function FavoritePage() {
         dispatch(removeFavCity(cityId))
     })
     return (
-        <div >
+        <div id="fav-details">
             {favCities ?
                 <div>
                     <ul className={`${(isDark) ? 'fav-page' : null}  flex wrap justify-center`} >
@@ -42,7 +42,7 @@ export default function FavoritePage() {
                                     </div>
                                     <div className="favs-card-btns flex column align-center">
                                         <Link to="/home" onClick={() => goToDetails(city)}>More Details</Link>
-                                        <a onClick={() => toggleFavHandler(city._id)} >
+                                        <a onClick={() => toggleFavHandler(city._id)} href="#fav-details">
                                             <i className='fas fa-heart'></i>
                                         </a>
                                     </div>
