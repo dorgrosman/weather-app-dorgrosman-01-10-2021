@@ -38,7 +38,7 @@ export default function FavoritePage() {
                                         />
                                     </div>
                                     <div >
-                                        {celsius ? <h2>{city.Temperature} &deg;C</h2> : <h2>{parseFloat((city.Temperature * 1.8) + 32).toFixed(0)} &deg;F</h2>}
+                                        {celsius ? <h2>{parseFloat((city.Temperature - 32) / 1.8).toFixed(0)} &deg;C</h2> : <h2>{city.Temperature} &deg;F</h2>}
                                     </div>
                                     <div className="favs-card-btns flex column align-center">
                                         <Link to="/home" onClick={() => goToDetails(city)}>More Details</Link>

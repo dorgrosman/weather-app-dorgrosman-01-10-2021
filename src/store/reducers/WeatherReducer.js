@@ -1,5 +1,5 @@
 
-import { CURRENT_WEATHER_SELECTED, SEARCH, SET_CHANGE_UNITS, SET_FAVORITE_CITY, WEEKLY_FORECAST_SELECTED, SET_CHANGE_DARK_MODE, REMOVE_FAVORITE_CITY } from './../action/WeatherAction';
+import { CURRENT_WEATHER_SELECTED, SET_CHANGE_UNITS, SET_FAVORITE_CITY, WEEKLY_FORECAST_SELECTED, SET_CHANGE_DARK_MODE, REMOVE_FAVORITE_CITY, SET_AUTO_COMPETE, SELECTED_CITY } from './../action/WeatherAction';
 
 
 const initialState = {
@@ -12,6 +12,12 @@ const initialState = {
     selectedCityKey: '215854',
     currentDataDay: null,
     favCities: [],
+    autocomplete: [{
+        _id: '11234',
+        LocalizedName: "Tel Aviv" ,
+        Key: '215854',
+        cityIsFav: false
+    }],
     weeklyForecast: [],
     celsius: false,
     isFav: false,
@@ -20,7 +26,8 @@ const initialState = {
 
 const WeatherReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SEARCH:
+        case SELECTED_CITY:
+            const selectedCityAuto = action.payload
             const citySelected = action.payload
             if (!citySelected._id) {
                 citySelected._id = makeId()
@@ -33,7 +40,17 @@ const WeatherReducer = (state = initialState, action) => {
                 citySelected.cityIsFav = false
                 state.isFav = false
             }
-            return { ...state, selectedCity: action.payload, selectedCityKey: citySelected.Key }
+            return { ...state, selectedCity: selectedCityAuto, selectedCityKey: selectedCityAuto.Key }
+        case SET_AUTO_COMPETE:
+            const locations = action.payload;
+            const cityAutoComplete = []
+            for (let location of locations) {
+                let LocalizedName = location.LocalizedName;
+                let _id = makeId();
+                let Key = location.Key;
+                cityAutoComplete.push({ _id, LocalizedName, Key });
+            }
+            return { ...state, autocomplete: cityAutoComplete }
         case CURRENT_WEATHER_SELECTED:
             const currentDataDay = action.payload
             return { ...state, currentDataDay: currentDataDay }
@@ -45,8 +62,11 @@ const WeatherReducer = (state = initialState, action) => {
             )
             return { ...state, weeklyForecast: currentData5Days }
         case SET_FAVORITE_CITY:
-            state.selectedCity.Icon = state.weeklyForecast[0].Day.Icon
-            state.selectedCity.Temperature = state.currentDataDay.Temperature.Metric.Value
+            state.weeklyForecast.map(day => {
+                state.selectedCity.Icon = day.Day.Icon;
+                return state.selectedCity.Icon
+            })
+            state.selectedCity.Temperature = state.weeklyForecast[0].Temperature.Maximum.Value
             if (state.selectedCity.cityIsFav) {
                 const updatedFavCities = state.favCities.filter(p => p._id !== action.cityId)
                 state.selectedCity.cityIsFav = false;

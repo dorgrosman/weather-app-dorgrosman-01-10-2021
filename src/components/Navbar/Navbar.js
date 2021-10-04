@@ -20,7 +20,7 @@ export default function Navbar() {
     return (
         <div className="main-navbar " style={{ backgroundColor: (isDark) ? '#d5e4f4' : null }}>
             <div className="logo">
-                <Link to="/home" className="logo pointer"><img src={logoImg} alt="" onClick={() => toggleNavMobile(!navMobile)} /></Link>
+                <Link to="/home" className="logo pointer"><img src={logoImg} alt=""  /></Link>
             </div>
             <div></div>
             <div></div>

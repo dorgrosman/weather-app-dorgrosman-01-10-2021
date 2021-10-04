@@ -1,5 +1,4 @@
 import axios from 'axios'
-export const SEARCH = 'SEARCH';
 export const CURRENT_WEATHER_SELECTED = 'CURRENT_WEATHER_SELECTED';
 export const WEEKLY_FORECAST_SELECTED = 'WEEKLY_FORECAST_SELECTED';
 export const SET_FAVORITE_CITY = 'SET_FAVORITE_CITY';
@@ -7,21 +6,26 @@ export const SET_CHANGE_UNITS = 'SET_CHANGE_UNITS';
 export const SET_AUTO_COMPETE = 'SET_AUTO_COMPETE';
 export const SET_CHANGE_DARK_MODE = 'SET_CHANGE_DARK_MODE';
 export const REMOVE_FAVORITE_CITY = 'REMOVE_FAVORITE_CITY';
+export const SELECTED_CITY = 'SELECTED_CITY';
 
-const API_KEY = "xnlsQEvyXLSiXXHKhNiOfTEJF42HA0rr"
+const API_KEY = "6U05H9fOxamHp9EWCvU4NBGEpsRlyExj"
 
-export function searchCity(cityName) {
+export function searchCity(value) {
     return async (dispatch) => {
-        const res = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${API_KEY}&q=${cityName}`)
+        const res = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=${API_KEY}&q=${value}`)
         let data = res.data
-        if (data.length === 0) {
-            return
-        } else {
-            const city = data[0];
-            dispatch({ type: SEARCH, payload: city })
-        }
+        
+        dispatch({ type: SET_AUTO_COMPETE, payload: data })
     }
 }
+export function searchCityByKey(cityKey) {
+    return async (dispatch) => {
+        const res = await axios.get(`https://dataservice.accuweather.com/locations/v1/${cityKey}?apikey=${API_KEY}`)
+        let data = res.data
+        dispatch({ type: SELECTED_CITY, payload: data })
+    }
+}
+
 export function matchCity(cityKey) {
     return async (dispatch) => {
         const res = await axios.get(`https://dataservice.accuweather.com/currentconditions/v1/${cityKey}?apikey=${API_KEY}`)

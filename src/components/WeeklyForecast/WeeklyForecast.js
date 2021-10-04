@@ -6,6 +6,7 @@ import Moment from "react-moment";
 export default function WeeklyForecast(props) {
     const weeklyForecast = props.weeklyForecast
     const celsius = useSelector(state => state.weatherReducer.celsius)
+    
     return (
         <div>
             {(weeklyForecast.length !== 0) ? (
@@ -13,8 +14,8 @@ export default function WeeklyForecast(props) {
                     {weeklyForecast.map(day =>
                         <li className="weekly-card " key={day._id}>
                             {celsius ? <section className="content">
-                            <h1><Moment format="ddd">{day.Date}</Moment></h1>
-                              <img
+                                <h1><Moment format="ddd">{day.Date}</Moment></h1>
+                                <img
                                     className="small-image"
                                     src={`https://developer.accuweather.com/sites/default/files/${day.Day.Icon >= 10 ? day.Day.Icon : "0" + day.Day.Icon
                                         }-s.png`}
@@ -33,9 +34,9 @@ export default function WeeklyForecast(props) {
                                     </div>
                                 </div>
                             </section> : (<section className="content">
-                               
-                            <h1><Moment format="ddd">{day.Date}</Moment></h1>
-                              <img
+
+                                <h1><Moment format="ddd">{day.Date}</Moment></h1>
+                                <img
                                     className="small-image"
                                     src={`https://developer.accuweather.com/sites/default/files/${day.Day.Icon >= 10 ? day.Day.Icon : "0" + day.Day.Icon
                                         }-s.png`}
