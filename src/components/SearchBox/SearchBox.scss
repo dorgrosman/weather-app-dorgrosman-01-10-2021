@@ -66,8 +66,9 @@
         width: 140px;
     }
     .box > select {
-        width: 210px;
-        margin: 20px;
+        // width: 210px;
+        // margin: 20px;
+        width: 100%;
     }
     .search-btn {
         width: 100%;
@@ -106,7 +107,6 @@
         grid-row: 2;
     }
     .box{
-        margin-left: 35px;
         margin-top: 10px;
     }
     .searchBox {
