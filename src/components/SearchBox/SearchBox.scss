@@ -38,29 +38,79 @@
 .box select option {
     padding: 30px;
 }
-
+.searchInput{
+    display: flex;
+    align-items: center;
+}
 .search-btn {
     color: rgb(143, 143, 143);
     font-size: 30px;
-    width: 72px;
+    width: 172px;
+    height: 52px;
 }
 .select-input {
     color: black;
 }
+.searchBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button{
+    
+}
+
 
 @media screen and (max-width: 690px) {
-  
     input {
         width: 140px;
-    }
-    .search-btn {
-        width: 210px;
     }
     .box > select {
         width: 210px;
         margin: 20px;
     }
+    .search-btn {
+        width: 100%;
+        height: 55px;
+    }
     .searchBox {
         flex-direction: column-reverse;
     }
+    .searchInput{
+        display: block;
+        align-items: none;
+    }
+    .searchBox{
+        display: block;
+        align-items: none;
+    }
+    .grid-container {
+        align-items: none;
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        grid-template-rows: repeat(3, 50px);
+        gap: 5%;
+    }
+    .textField{
+        grid-column: 1 / 2;
+        grid-row: 1;
+        
+    }
+    .button{
+        grid-column: 2 / 3;
+        grid-row: 1;
+        
+    }
+    .box{
+        grid-column: 1 / 3;
+        grid-row: 2;
+    }
+    .box{
+        margin-left: 35px;
+        margin-top: 10px;
+    }
+    .searchBox {
+        flex-direction: row;
+    }
 }
+

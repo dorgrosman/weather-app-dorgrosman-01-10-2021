@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { matchCity, weeklyForecast5Days, searchCity, removeFavCity, searchCityByKey } from './../../store/action/WeatherAction';
+import { matchCity, weeklyForecast5Days,  removeFavCity, searchCityByKey } from './../../store/action/WeatherAction';
 import './FavoritePage.scss'
 
 export default function FavoritePage() {

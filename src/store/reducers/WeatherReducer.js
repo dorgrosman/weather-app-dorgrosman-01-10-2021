@@ -7,6 +7,7 @@ const initialState = {
         _id: '11234',
         AdministrativeArea: { LocalizedName: "Tel Aviv" },
         Key: '215854',
+        countryId:'IL',
         cityIsFav: false
     },
     selectedCityKey: '215854',
@@ -16,6 +17,7 @@ const initialState = {
         _id: '11234',
         LocalizedName: "Tel Aviv",
         Key: '215854',
+        countryId:'IL',
         cityIsFav: false
     }],
     weeklyForecast: [],
@@ -47,7 +49,8 @@ const WeatherReducer = (state = initialState, action) => {
                 let LocalizedName = location.LocalizedName;
                 let _id = makeId();
                 let Key = location.Key;
-                cityAutoComplete.push({ _id, LocalizedName, Key });
+                let countryId = location.Country.ID;
+                cityAutoComplete.push({ _id, LocalizedName, Key ,countryId});
             }
             return { ...state, autocomplete: cityAutoComplete }
         case CURRENT_WEATHER_SELECTED:

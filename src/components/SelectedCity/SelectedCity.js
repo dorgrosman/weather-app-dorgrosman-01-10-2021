@@ -18,7 +18,7 @@ export default function SelectedCity() {
             dispatch(matchCity(selectedCity.Key))
             dispatch(weeklyForecast5Days(selectedCity.Key))
         }
-    }, [dispatch,selectedCity])
+    }, [dispatch, selectedCity])
 
     const toggleFavHandler = (() => {
         dispatch(FavCity(selectedCity._id))
@@ -27,51 +27,53 @@ export default function SelectedCity() {
     return (
         <div id="details">
             {weeklyForecast[0] ?
-            <div >
-                {(selectedCity && currentDataDay ) ? (
-                    < div >
-                        <div className="card flex space-between align-center">
-                            <div className="name-day-degree">
-                                <h2>{selectedCity.AdministrativeArea.LocalizedName}</h2>
-                                <h2><Moment format="ddd">{currentDataDay.LocalObservationDateTime}</Moment></h2>
-                                {celsius ? <h1>{currentDataDay.Temperature.Metric.Value} &deg;C</h1> : <h1>{parseFloat((currentDataDay.Temperature.Metric.Value * 1.8) + 32).toFixed(0)} &deg;F</h1>}
+                <div >
+                    {(selectedCity && currentDataDay) ? (
+                        < div >
+                            <div className="card flex space-between align-center">
+                                <div className="name-day-degree">
+                                    <h2>{selectedCity.AdministrativeArea.LocalizedName}</h2>
+                                    <h2><Moment format="ddd">{currentDataDay.LocalObservationDateTime}</Moment></h2>
+                                    {celsius ? <h1>{currentDataDay.Temperature.Metric.Value} &deg;C</h1> : <h1>{parseFloat((currentDataDay.Temperature.Metric.Value * 1.8) + 32).toFixed(0)} &deg;F</h1>}
+                                </div>
+                                <div className="flex">
+                                    <div className="day-night flex column align-center">
+                                        <h1>Day</h1>
+                                        {celsius ? <h3>{parseFloat((weeklyForecast[0].Temperature.Maximum.Value - 32) / 1.8).toFixed(0)} &deg;C </h3> : <h3>{weeklyForecast[0].Temperature.Maximum.Value} &deg;F</h3>}
+                                        <img
+                                            className="main-icon"
+                                            src={`https://developer.accuweather.com/sites/default/files/${weeklyForecast[0].Day.Icon >= 10 ? weeklyForecast[0].Day.Icon : "0" + weeklyForecast[0].Day.Icon
+                                                }-s.png`}
+                                            alt="weather-icon"
+                                        />
+                                        <p>{weeklyForecast[0].Day.IconPhrase}</p>
+                                    </div>
+                                    <div className="day-night flex column align-center">
+                                        <h1>Night</h1>
+                                        {celsius ? <h3>{parseFloat((weeklyForecast[0].Temperature.Minimum.Value - 32) / 1.8).toFixed(0)} &deg;C </h3> : <h3>{weeklyForecast[0].Temperature.Minimum.Value} &deg;F</h3>}
+                                        <img
+                                            className="main-icon"
+                                            src={`https://developer.accuweather.com/sites/default/files/${weeklyForecast[0].Night.Icon >= 10 ? weeklyForecast[0].Night.Icon : "0" + weeklyForecast[0].Day.Night
+                                                }-s.png`}
+                                            alt="weather-icon"
+                                        />
+                                        <p>{weeklyForecast[0].Night.IconPhrase}</p>
+                                    </div>
+                                </div>
+                                <div className=" flex align-center">
+                                    <a onClick={toggleFavHandler} href="#details">
+                                        <i className={`fav-btn ${(isFav) ? 'fas fa-heart' : 'far fa-heart'}`}></i>
+                                    </a>
+                                </div>
                             </div>
-                            <div className="day-night flex column align-center">
-                                <h1>Day</h1>
-                                {celsius ? <h3>{parseFloat((weeklyForecast[0].Temperature.Maximum.Value - 32) / 1.8).toFixed(0)} &deg;C </h3> : <h3>{weeklyForecast[0].Temperature.Maximum.Value} &deg;F</h3>}
-                                <img
-                                    className="main-icon"
-                                    src={`https://developer.accuweather.com/sites/default/files/${weeklyForecast[0].Day.Icon >= 10 ? weeklyForecast[0].Day.Icon : "0" + weeklyForecast[0].Day.Icon
-                                        }-s.png`}
-                                    alt="weather-icon"
-                                />
-                                <p>{weeklyForecast[0].Day.IconPhrase}</p>
+                            <div>
+                                <WeeklyForecast weeklyForecast={weeklyForecast} />
                             </div>
-                            <div className="day-night flex column align-center">
-                                <h1>Night</h1>
-                                {celsius ? <h3>{parseFloat((weeklyForecast[0].Temperature.Minimum.Value - 32) / 1.8).toFixed(0)} &deg;C </h3> : <h3>{weeklyForecast[0].Temperature.Minimum.Value} &deg;F</h3>}
-                                <img
-                                    className="main-icon"
-                                    src={`https://developer.accuweather.com/sites/default/files/${weeklyForecast[0].Night.Icon >= 10 ? weeklyForecast[0].Night.Icon : "0" + weeklyForecast[0].Day.Night
-                                        }-s.png`}
-                                    alt="weather-icon"
-                                />
-                                <p>{weeklyForecast[0].Night.IconPhrase}</p>
-                            </div>
-                            <div className=" flex align-center">
-                                <a onClick={toggleFavHandler} href="#details">
-                                    <i className={`fav-btn ${(isFav) ? 'fas fa-heart' : 'far fa-heart'}`}></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div>
-                            <WeeklyForecast weeklyForecast={weeklyForecast} />
-                        </div>
-                    </div>)
-                    : null
-                }
-            </div>
-            :null}
+                        </div>)
+                        : null
+                    }
+                </div>
+                : null}
         </div >
     )
 }

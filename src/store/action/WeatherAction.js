@@ -37,9 +37,11 @@ export function matchCity(cityKey) {
     }
 }
 export function weeklyForecast5Days(cityKey) {
+    console.log('cityKey:', cityKey)
     return async (dispatch) => {
         const res = await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${cityKey}?apikey=${API_KEY}`)
         let currentData5Days = res.data.DailyForecasts
+        console.log('currentData5Days:', currentData5Days)
         dispatch({ type: WEEKLY_FORECAST_SELECTED, payload: currentData5Days })
     }
 }
