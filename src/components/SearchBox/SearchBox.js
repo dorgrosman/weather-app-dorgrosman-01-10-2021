@@ -23,7 +23,6 @@ export default function SearchBox() {
     }
     const sentToSearch = (event) => {
         event.preventDefault()
-        dispatch(searchCity(event))
         dispatch(searchCityByKey(key))
         dispatch(matchCity(key))
         setInputValue("")
