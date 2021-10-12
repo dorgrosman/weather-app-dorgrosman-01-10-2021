@@ -8,7 +8,7 @@ export const SET_CHANGE_DARK_MODE = 'SET_CHANGE_DARK_MODE';
 export const REMOVE_FAVORITE_CITY = 'REMOVE_FAVORITE_CITY';
 export const SELECTED_CITY = 'SELECTED_CITY';
 
-const API_KEY = "6U05H9fOxamHp9EWCvU4NBGEpsRlyExj"
+const API_KEY = "rjV0ZAqKkGZJNmBpvGPGBXYpdnEdePhK"
 
 export function searchCity(value) {
     return async (dispatch) => {
